@@ -1,19 +1,28 @@
 import glob
 import os
 import traceback
+import sys
 
 _all = {}
 _aliases = {}
 
 
 def reloadWhatChanged():
+    for moduleName in ['codetools']:
+        for subModuleName in sys.modules:
+            if not subModuleName.startswith(moduleName + "."):
+                continue
+            if sys.modules[subModuleName] is None:
+                continue
+            reload(sys.modules[subModuleName])
     for filename in glob.glob("%s/.vim/bundle/vimpygoodies/py/cmd_*.py" % os.environ['HOME']):
         try:
             if filename in _all:
                 if os.stat(filename).st_mtime == _all[filename].mtime:
                     continue
                 for alias in _all[filename].aliases:
-                    del _aliases[alias]
+                    if alias in _aliases:
+                        del _aliases[alias]
             moduleName = os.path.basename(filename)[:-len(".py")]
             module = __import__(moduleName)
             reload(module)

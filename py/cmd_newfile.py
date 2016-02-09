@@ -70,23 +70,3 @@ def _newHeaderFile(relativeParts):
         "#endif // %s" % protectMacro,
     ]
     return result
-#
-#
-#    def printNewHeaderFile():
-#        print "#ifndef %s" % protectMacro
-#        print "#define %s" % protectMacro
-#        print ""
-#        for namespace in namespaces[ : -1 ]:
-#            print 'namespace %s {' % namespace
-#        if len( relativeParts ) > 1:
-#            print 'namespace %s\n{' % relativeParts[ -2 ]
-#        print ""
-#        print ""
-#        for namespace in reversed( namespaces ):
-#            print "} // namespace %s" % namespace
-#        print ""
-#        print "#endif // %s" % protectMacro
-#
-#    if className.startswith( "Test_" ):
-#        printNewTestSuiteFile( className )
-#    else:
