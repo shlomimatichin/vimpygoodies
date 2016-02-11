@@ -47,7 +47,7 @@ def _newHeaderFile(relativeParts):
         result.append('namespace %s {' % namespace)
     if len(relativeParts) > 1:
         result += [
-            'namespace %s' % relativeParts[-1],
+            'namespace %s' % relativeParts[-2],
             '{',
             "",
         ]
