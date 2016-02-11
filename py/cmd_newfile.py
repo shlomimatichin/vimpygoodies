@@ -3,7 +3,7 @@ import re
 import os
 
 
-def newFile():
+def newFile(*args):
     currentContent = "".join(vim.current.buffer).strip()
     if currentContent != "":
         print "Buffer not empty, will not generate"

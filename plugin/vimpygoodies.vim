@@ -7,4 +7,4 @@ function! VimPyGoodies(...)
     pyfile $HOME/.vim/bundle/vimpygoodies/py/main.py
 endfunction
 
-command -range -nargs=+ Goodies call VimPyGoodies(<f-args>)
+command -range -nargs=+ Goodies call VimPyGoodies(<line1>,<line2>,<f-args>)

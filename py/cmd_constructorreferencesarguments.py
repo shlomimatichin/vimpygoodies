@@ -4,7 +4,7 @@ import os
 from codetools import constructorreferenceargumentscpp
 
 
-def constructorReferencesArguments():
+def constructorReferencesArguments(*args):
     filename = vim.current.buffer.name
     fileType = os.path.splitext(filename)[1].lower()
     content = "\n".join(vim.current.range)

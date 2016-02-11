@@ -3,7 +3,7 @@ import re
 import os
 
 
-def dirtyTrace():
+def dirtyTrace(*args):
     lineNumber = vim.current.range.start
     filename = vim.current.buffer.name
     fileType = os.path.splitext(filename)[1].lower()

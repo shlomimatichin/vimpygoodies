@@ -4,6 +4,8 @@ sys.path.append(os.path.join(os.environ['HOME'], ".vim", "bundle", "vimpygoodies
 import vim
 import entrypoints
 
+line1 = int(argv.pop(0)) - 1
+line2 = int(argv.pop(0)) - 1
 command = argv.pop(0)
 entrypoints.reloadWhatChanged()
-entrypoints.invoke(command, argv)
+entrypoints.invoke(command, [line1, line2] + argv)
