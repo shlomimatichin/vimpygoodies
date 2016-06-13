@@ -2,6 +2,13 @@ import glob
 import os
 import traceback
 import sys
+try:
+    try:
+        from importlib import reload
+    except:
+        from imp import reload
+except:
+    pass
 
 _all = {}
 _aliases = {}
@@ -26,14 +33,14 @@ def reloadWhatChanged():
             moduleName = os.path.basename(filename)[:-len(".py")]
             module = __import__(moduleName)
             reload(module)
-            for alias, method in module.aliases.iteritems():
+            for alias, method in module.aliases.items():
                 if alias in _aliases:
                     raise Exception("VimPyGoodies: Alias '%s' already exists" % alias)
                 _aliases[alias] = method
             _all[filename] = module
             module.mtime = os.stat(filename).st_mtime
         except:
-            print "Unable to load '%s'" % filename
+            print("Unable to load '%s'" % filename)
             traceback.print_exc()
 
 

@@ -9,8 +9,8 @@ def constructorReferencesArguments(*args):
     fileType = os.path.splitext(filename)[1].lower()
     content = "\n".join(vim.current.range)
     if fileType in ['.h', '.hpp', '.hxx', '.c', '.cpp', '.cxx']:
-	instance = constructorreferenceargumentscpp.ConstructorReferenceArgumentsCPP(content)
-	vim.current.range.append(instance.format().rstrip().split("\n"))
+        instance = constructorreferenceargumentscpp.ConstructorReferenceArgumentsCPP(content)
+        vim.current.range.append(instance.format().rstrip().split("\n"))
     else:
         raise Exception("Unknown file type: '%s' => '%s'" % (filename, fileType))
 

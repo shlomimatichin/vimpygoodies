@@ -1,8 +1,8 @@
-import parsecppfunctionsignature
+from . import parsecppfunctionsignature
 import re
-import tab
-import formatcolums
-import parsecppmemberlist
+from . import tab
+from . import formatcolums
+from . import parsecppmemberlist
 
 class ConstructorReferenceArgumentsCPP:
     def __init__(self, input):

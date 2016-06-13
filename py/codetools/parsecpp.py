@@ -1,4 +1,5 @@
-import tokenize
+from . import tokenize
+
 
 class VariableDeclaration:
     #input: 'int a'

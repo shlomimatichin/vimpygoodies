@@ -1,4 +1,4 @@
-import tokenize
+from . import tokenize
 
 
 class ParseSimpleCall:

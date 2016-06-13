@@ -1,4 +1,4 @@
-import parsecpp
+from . import parsecpp
 import re
 
 class ParseCPPMemberList:

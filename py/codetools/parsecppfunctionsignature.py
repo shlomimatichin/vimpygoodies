@@ -1,5 +1,5 @@
-import parsecpp
-import tokenize
+from . import parsecpp
+from . import tokenize
 
 class ParseCPPFunctionSignature:
     def __init__(self, input):

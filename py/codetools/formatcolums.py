@@ -1,5 +1,5 @@
 import re
-import tab
+from . import tab
 
 
 class FormatColums:

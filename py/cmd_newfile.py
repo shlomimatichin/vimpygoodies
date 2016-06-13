@@ -6,7 +6,7 @@ import os
 def newFile(*args):
     currentContent = "".join(vim.current.buffer).strip()
     if currentContent != "":
-        print "Buffer not empty, will not generate"
+        print("Buffer not empty, will not generate")
         return
     fileType = os.path.splitext(vim.current.buffer.name)[1]
     relative = vim.current.buffer.name[len(os.getcwd()) + len(os.path.sep):]

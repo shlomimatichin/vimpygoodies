@@ -1,8 +1,8 @@
-import parsecpp
-import parsecppmemberlist
-import parsesimplecall
-import parsecppfunctionsignature
-import formatcolums
+from . import parsecpp
+from . import parsecppmemberlist
+from . import parsesimplecall
+from . import parsecppfunctionsignature
+from . import formatcolums
 
 
 class ColumnIndentCPP:

@@ -47,7 +47,7 @@ class Tokenize:
         opening = set(self._matching.keys())
         closing = set(self._matching.values())
         opened = []
-        for i in xrange(len(self._tokens)):
+        for i in range(len(self._tokens)):
             c = self._tokens[ i ]
             if c in opening:
                 opened.append(c)
