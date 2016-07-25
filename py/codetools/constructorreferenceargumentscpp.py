@@ -4,6 +4,7 @@ from . import tab
 from . import formatcolums
 from . import parsecppmemberlist
 
+
 class ConstructorReferenceArgumentsCPP:
     def __init__(self, input):
         self._input = input

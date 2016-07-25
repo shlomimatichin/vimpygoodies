@@ -8,7 +8,7 @@ class Tab:
         self._expandtab = int(vim.eval("&expandtab"))
 
     def roundUp(self, value):
-        return ((value + self._shiftwidth - 1) / self._shiftwidth) * self._shiftwidth
+        return ((int(value) + self._shiftwidth - 1) // self._shiftwidth) * self._shiftwidth
 
     def countChars(self, string):
         result = 0
