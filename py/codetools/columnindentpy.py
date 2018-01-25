@@ -25,7 +25,8 @@ class ColumnIndentPy:
     def _indentation(self):
         if self._firstArgOnSameLine:
             size = self._tab.countChars(self._parse.lead())
+            return ' ' * size
         else:
             spacePrefix = re.match(r"\s*", self._input).group(0)
             size = self._tab.roundUp(self._tab.countChars(spacePrefix + '\t'))
-        return self._tab.produce(size)
+            return self._tab.produce(size)
