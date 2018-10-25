@@ -10,8 +10,7 @@ class ConstructorReferenceArgumentsPy:
         self._parse = parsesimplecall.ParseSimpleCall(input)
 
     def format(self):
-        return self._input + "\n" + \
-                self._formatInitialization()
+        return self._formatInitialization()
 
     def _indentation(self, add = ""):
         spacePrefix = re.match(r"\s*", self._input).group(0)

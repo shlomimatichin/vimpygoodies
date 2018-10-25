@@ -3,18 +3,19 @@ import re
 import os
 from codetools import constructorreferenceargumentscpp
 from codetools import constructorreferenceargumentspy
+import vimrange
 
 
 def constructorReferencesArguments(*args):
+    range = vimrange.VimRange(*args)
     filename = vim.current.buffer.name
     fileType = os.path.splitext(filename)[1].lower()
-    content = "\n".join(vim.current.range)
     if fileType in ['.h', '.hpp', '.hxx', '.c', '.cpp', '.cxx']:
-        instance = constructorreferenceargumentscpp.ConstructorReferenceArgumentsCPP(content)
-        vim.current.range.append(instance.format().rstrip().split("\n"))
+        instance = constructorreferenceargumentscpp.ConstructorReferenceArgumentsCPP(range.content())
+        range.append(instance.format().rstrip())
     if fileType in ['.py']:
-        instance = constructorreferenceargumentspy.ConstructorReferenceArgumentsPy(content)
-        vim.current.range.append(instance.format().rstrip().split("\n")[1:])
+        instance = constructorreferenceargumentspy.ConstructorReferenceArgumentsPy(range.content())
+        range.append(instance.format().rstrip())
     else:
         raise Exception("Unknown file type: '%s' => '%s'" % (filename, fileType))
 
