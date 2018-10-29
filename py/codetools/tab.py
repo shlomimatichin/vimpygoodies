@@ -24,7 +24,6 @@ class Tab:
             size *= self._shiftwidth
         if roundUp:
             size = self.roundUp(size)
-        assert size % self._shiftwidth == 0, "%d %d %d %s" % (size, self._shiftwidth, self._tabstop, tab)
         if self._expandtab:
             return ' ' * size
         else:

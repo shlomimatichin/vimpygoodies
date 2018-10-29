@@ -12,10 +12,8 @@ class FormatColums:
         self._tab = tab.Tab()
         self._lines = self._toLines(parse.rows())
         self._lead = parse.lead()
-        if self._lead.isspace():
-            self._indentationCharacters = self._tab.countChars(self._lead)
-        else:
-            self._indentationCharacters = self._tab.countChars(self._lead + '\t')
+        self._indentationCharacters = self._tab.countChars(self._lead)
+        if not self._lead.isspace():
             mustAddNewLine = self._alwaysNewLineForFirstParameter
             if self._indentationCharacters + self._longestLine() > self._maximumLineLength:
                 mustAddNewLine = True
@@ -25,7 +23,7 @@ class FormatColums:
             if mustAddNewLine:
                 self._lead + '\n' + self._indentation()
             else:
-                assert self._indentationCharacters > self._tab.countChars(self._lead)
+                assert self._indentationCharacters >= self._tab.countChars(self._lead)
                 self._lead += ' ' * (self._indentationCharacters - self._tab.countChars(self._lead))
 
     def format(self):
