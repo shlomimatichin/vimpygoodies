@@ -1,4 +1,5 @@
 import vim
+import re
 
 
 class VimRange:
@@ -27,3 +28,10 @@ class VimRange:
             vim.current.range[:] = asLines
         else:
             vim.current.buffer[self._line1: self._line2 + 1] = asLines
+
+    def currentWord(self):
+        row, col = vim.current.window.cursor
+        line = vim.current.buffer[row-1]
+        right = re.match(r"\w+", line[col:]).group(0)
+        left = re.search(r"\w*$", line[:col]).group(0)
+        return left + right
