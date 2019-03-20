@@ -56,6 +56,10 @@ endif
 command TinyFont :set guifont=Monospace\ 12
 command SmallFont :set guifont=Monospace\ 14
 command LargeFont :set guifont=Monospace\ 18
+
+if !empty($VIMMAKEPRG)
+    set makeprg=$VIMMAKEPRG
+endif
 EOF
 ## MAC: change Monospace\ 18 to Menlo:h24
 cat > ~/.vim/plugin/togglecomment.vim << 'EOF'
@@ -86,6 +90,7 @@ git clone https://github.com/shlomimatichin/vimpygoodies.git
 git clone https://github.com/tpope/vim-vinegar.git
 #git clone https://github.com/corntrace/bufexplorer
 git clone https://github.com/jlanzarotta/bufexplorer.git
+git clone https://github.com/junegunn/fzf
 ~~~
 
 MAC setup:

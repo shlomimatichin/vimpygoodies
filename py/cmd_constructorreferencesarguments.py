@@ -13,7 +13,7 @@ def constructorReferencesArguments(*args):
     if fileType in ['.h', '.hpp', '.hxx', '.c', '.cpp', '.cxx']:
         instance = constructorreferenceargumentscpp.ConstructorReferenceArgumentsCPP(range.content())
         range.append(instance.format().rstrip())
-    if fileType in ['.py']:
+    elif fileType in ['.py']:
         instance = constructorreferenceargumentspy.ConstructorReferenceArgumentsPy(range.content())
         range.append(instance.format().rstrip())
     else:

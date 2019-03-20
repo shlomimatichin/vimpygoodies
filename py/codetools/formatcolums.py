@@ -17,7 +17,7 @@ class FormatColums:
             mustAddNewLine = self._alwaysNewLineForFirstParameter
             if self._indentationCharacters + self._longestLine() > self._maximumLineLength:
                 mustAddNewLine = True
-                self._indentationCharacters = self._maximumLineLength - self._tab.roundUp(self._longestLine)
+                self._indentationCharacters = self._maximumLineLength - self._tab.roundUp(self._longestLine())
                 if self._indentationCharacters < self._minimumIndentation():
                     self._indentationCharacters = self._minimumIndentation()
             if mustAddNewLine:

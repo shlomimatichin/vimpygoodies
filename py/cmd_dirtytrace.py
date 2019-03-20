@@ -8,12 +8,14 @@ def dirtyTrace(*args):
     filename = vim.current.buffer.name
     fileType = os.path.splitext(filename)[1].lower()
     indent = re.match(r"(\s*)\S", vim.current.buffer[lineNumber]).group(1)
-    if fileType == ".py":
+    if fileType in ['.py', '.pyx']:
+        start = indent + "print('X'*100, "
         vim.current.buffer[lineNumber: lineNumber] = [
             "### DIRTY TRACE",
-            indent + "print 'X'*100",
+            start + ")",
             "### DIRTY TRACE END",
         ]
+        vim.current.window.cursor = (lineNumber + 2, len(start))
     elif fileType in ['.h', '.hpp', '.hxx', '.c', '.cpp', '.cxx']:
         vim.current.buffer[lineNumber: lineNumber] = [
             "//// DIRTY TRACE",

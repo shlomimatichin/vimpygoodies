@@ -16,7 +16,8 @@ class VimRange:
     def append(self, content):
         asLines = content.rstrip().split("\n")
         if self._vimRange:
-            vim.current.range += asLines
+            newLines = vim.current.range[:] + asLines
+            vim.current.range[:] = newLines
         else:
             vim.current.buffer[self._line2 + 1: self._line2 + 1] = asLines
 
